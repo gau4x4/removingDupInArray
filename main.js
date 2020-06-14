@@ -1,16 +1,12 @@
-let calculateShortestDistance=(argArray)=>{
-  let tempSmVal=Number.MAX_SAFE_INTEGER,arrV=[];
-  for(let j=0;j<argArray.length;j++){
-    for(let i=j+1;i<argArray.length;i++){
-      if(tempSmVal>Math.abs(argArray[j],argArray[i])){
-        tempSmVal=Math.abs(argArray[j]-argArray[i]);
-      }
-      arrV.push(tempSmVal);
-    }
+let dupRemoval=(testArr,flag)=>{
+  if(flag){
+    testArr.sort((a,b)=>a-b);
+    return Array.from(new Set(testArr));
   }
-  arrV.sort((a,b)=> a-b);
-console.log(arrV)
-  return arrV.shift();
+  else{
+     testArr.sort((a,b)=>b-a);
+     return Array.from(new Set(testArr));
+  }
+  
 }
-const testArray=[17,1,24,19,28,13,57,2];
-console.log(calculateShortestDistance(testArray));
+console.log(dupRemoval(new Array(1,1,2,3,5,6,6,7,9),9))
